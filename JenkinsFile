@@ -44,7 +44,15 @@ try
       DockerImage&Push "hajira/project","DockerHub"
    }
    
-   //###################### Sending Success Notification #################################
+   
+ //################## Storing war in JFrog Artifactory ##############################
+   
+   stage('Deploy artifacts')
+   {
+     artifactorylib "Artifactory","./target/*.jar","local-snapshot"
+   }
+   
+//###################### Sending Success Notification #################################
    
  stage('Send Job Success Notification')
    {
@@ -55,15 +63,6 @@ try
       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
     }
-   
- //################## Storing war in JFrog Artifactory ##############################
-   
-   stage('Deploy artifacts')
-   {
-     artifactorylib "Artifactory","./target/*.jar","libs-snapshot-repo"
-   }
-   
-
   }
     
     catch(e)
