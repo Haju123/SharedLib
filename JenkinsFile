@@ -20,7 +20,7 @@ try
 
    stage('Initialization and Set up') 
    { 
-      SetUpfile "https://github.com/Haju123/MVC.git"
+      SetUpfile 'https://github.com/Haju123/MVC.git'
    }
 
 //############ Build and Quality check with Sonar Qube ###########################
