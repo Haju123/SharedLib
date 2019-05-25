@@ -1,4 +1,4 @@
-@Library('shared_lib_1')_
+@Library('shared_lib')_
 
 node(label:'master') 
 {
